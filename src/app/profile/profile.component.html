@@ -1,0 +1,25 @@
+<div class="container-fluid">
+
+  <table class="table table-stripped">
+    <tr>
+       <th>Firstname</th>
+       <th>Lastname</th>
+       <th>Email</th>
+    </tr>
+
+
+    <tr>
+      <td>{{userinfo.firstname}}</td>
+      <td>{{userinfo.lastname}}</td>
+      <td>{{userinfo.email}}</td>
+      <td><mat-icon (click)="edit()">edit</mat-icon></td>
+    <td><mat-icon (click)="delete()">delete</mat-icon></td>
+
+    </tr>
+  </table>
+
+  <br><br>
+
+  <button type="submit" (click)="productpage()"> product</button>
+
+</div>

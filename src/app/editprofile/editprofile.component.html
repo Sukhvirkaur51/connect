@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-toolbar>Edit User Details</mat-toolbar>
+  <br> <br>
+  <form #updateform="ngForm" (ngSubmit)="OnSubmit(updateform)">
+   <mat-form-field>
+     <input
+     type="text"
+      name="firstname"
+      value={{userinfo.firstname}}
+      [(ngModel)]="userserviceobj.regnew.firstname"
+        #firstname="ngModel"
+      matInput
+      placeholder="FirstName">
+   </mat-form-field>
+   <br>
+
+   <mat-form-field>
+    <input
+    type="text"
+     name="lastname"
+     value={{userinfo.lastname}}
+     [(ngModel)]="userserviceobj.regnew.lastname"
+        #lastname="ngModel"
+     matInput
+     placeholder="lastName">
+  </mat-form-field>
+  <br>
+
+   <mat-form-field>
+    <input
+    type="text"
+     name="email"
+     value={{userinfo.email}}
+     [(ngModel)]="userserviceobj.regnew.email"
+        #email="ngModel"
+     matInput
+     placeholder="Email">
+  </mat-form-field>
+  <br>
+
+  <!-- <mat-form-field>
+    <input
+    type="password"
+     name="password"
+     value={{exist.password}}
+     [(ngModel)]="userserviceobj.regnew.password"
+        #password="ngModel"
+     matInput
+     placeholder="Password">
+  </mat-form-field>
+<br> -->
+
+
+  <button type="submit" mat-raised-button color="primary">Update User</button>
+
+  </form>
+</mat-card>
+

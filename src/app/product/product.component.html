@@ -1,0 +1,72 @@
+<div class="container">
+<div class="alert alert-info">
+Add products
+</div>
+
+
+<form  #productform="ngForm" (ngSubmit)="onadd(productform)">
+
+  <input
+  type="hidden"
+  name="user"
+  #user="ngModel"
+  [(ngModel)]="userserviceobj.newproduct.user"
+
+  >
+
+  Enter product name:
+  <input
+  type="text"
+  class="form-control"
+  name="productname"
+  #productname="ngModel"
+  [(ngModel)]="userserviceobj.newproduct.productname"
+  >
+  <br>
+
+  Enter product price:
+  <input
+  type="text"
+  class="form-control"
+  name="productprice"
+  #productprice="ngModel"
+  [(ngModel)]="userserviceobj.newproduct.productprice"
+  >
+  <br>
+
+  Enter product quantity:
+  <input
+  type="text"
+  class="form-control"
+  name="productquantity"
+  #productquantity="ngModel"
+  [(ngModel)]="userserviceobj.newproduct.productquantity"
+  >
+  <br>
+
+  <button type="submit">Details</button>
+
+</form>
+
+
+<br><br><br>
+
+<table class="table">
+  <tr>
+<th>Product Name</th>
+<th>Product Price</th>
+<th>Product Quantity</th>
+  </tr>
+
+
+  <tr *ngFor="let pro of product">
+<td>{{pro.productname}}</td>
+<td>{{pro.productprice}}</td>
+<td>{{pro.productquantity}}</td>
+
+
+  </tr>
+
+
+</table>
+</div>
