@@ -120,7 +120,7 @@ module.exports.displayfile=(req,res)=>{
 var storage=multer.diskStorage({
 
 diskStorage:(req,file,cb)=>{
-  cb(null,'../uploads');
+  cb(null,'./uploads');
 },
 filename:(req,file,cb)=>{
   cb(null,file.originalname);

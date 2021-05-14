@@ -13,64 +13,61 @@ export class EditprofileComponent implements OnInit {
 
   constructor(private activatedrouteobj:ActivatedRoute ,public userserviceobj:UserService ,private router:Router) { }
 
+  selected!:User;
   id:any;
   userdata:any=[];
   userinfo:any=[];
+  edituser:any=[];
+  edit:any=[];
   updateform!:NgForm;
-
-  // public exist: User={
-  //   firstname:'this.userinfo.firstname',
-  //   lastname:'this.userinfo.lastname',
-  //   email:'this.userinfo.email',
-  //   password:'this.userinfo.password',
-  //   confirmpassword:'this.userinfo.confirmpassword'
-  // }
-
-
+   @ViewChild('updateform',{static:false})
+   newForm!:NgForm
 
 
   ngOnInit(): void {
+
+    // this.activatedrouteobj.queryParams.subscribe(params=>{
+    //   this.id=params['id']
+    // });
+    // setTimeout(()=>{
+
+    //   this.newForm.form.patchValue({
+    //     firstname:this.edit.firstname,
+    //     lastname:this.edit.lastname,
+    //     email:this.edit.email,
+
+    //   })
+    //   },)
+
+
     this.id=this.userserviceobj.getuserid();
     console.log(this.id);
-    this.userdata=this.userserviceobj.display(this.id).subscribe((res)=>{  //with display method returns success,msg,data
+    this.userdata=this.userserviceobj.display(this.id).subscribe((res)=>{
+      // with display method returns success,msg,data
 
       console.log(res);
       this.userdata=res;
       this.userinfo=this.userdata.data;
       console.log(this.userinfo);
-      // this.exist=this.userinfo;
-      // console.log(this.exist);
-
-
-      // setTimeout(()=>{
-      //   this.userserviceobj.display(this.id);
-      //   this.updateform.form.patchValue({
-      //     firstname:this.exist.firstname,
-      //     lastname:this.exist.lastname,
-      //     email:this.exist.email,
-      //     password:this.exist.password,
-      //     confirmpassword:this.exist.confirmpassword
-
-      //   })
-      // },)
 
 
 
-    })
-  }
+     })
 
-
-
-
-
+    }
 
 
   OnSubmit(f:NgForm){
-    console.log(f.value);
+    // console.log(f.value);
     this.userserviceobj.updateuser(f.value).subscribe((res)=>{
       console.log(res);
+      this.edituser=res;
+      this.edit=this.edituser.data;
+      console.log(this.edit);
+
 
     })
+
 
 }
 

@@ -8,12 +8,31 @@ import{Product} from './product.model'
   providedIn: 'root'
 })
 export class UserService {
+  id:any;
+  userdata:any=[];
+  userinfo:any=[];
+
+  previousinfo(){
+  this.id=this.getuserid();
+    console.log(this.id);
+    this.userdata=this.display(this.id).subscribe((res)=>{
+      // with display method returns success,msg,data
+
+      console.log(res);
+      this.userdata=res;
+      this.userinfo=this.userdata.data;
+      console.log(this.userinfo);
+
+     })
+    }
+
+
 
   public regnew:User={
-    _id:this.getuserid(),
-    firstname:'',
-    lastname:'',
-    email:'',
+    // _id:this.getuserid(),
+    firstname:this.userinfo.firstname,
+    lastname:this.userinfo.lastname,
+    email:this.userinfo.email,
     password:'',
     confirmpassword:'',
 
